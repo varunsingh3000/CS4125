@@ -18,6 +18,18 @@ elseif strcmp(userChoice, 'data2')
 end
 
 [embedding, stress] = classicalMDS(X, numDimensions);
+Y = tsne(X, 'Algorithm','exact','NumDimensions',3);
+Y = tsne(X2);
+%disp(X);
+%disp(embedding);
+%disp(Y);
+fig = figure;
+scatter(Y(:, 1), Y(:, 2), 'filled');
+colormap('jet');
+colorbar;
+xlabel('Dimension 1');
+ylabel('Dimension 2');
+title('tSNE Embedding');
 
 % Func to generate the swissRole dataset
 function X = swissRole(numPoints)
